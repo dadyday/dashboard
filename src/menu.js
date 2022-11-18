@@ -7,6 +7,7 @@ export const mainMenu = [
             { label: 'Accounts', icon: 'pi pi-users', to: '/accounts' },
             { label: 'Aufträge', icon: 'pi pi-money-bill', to: '/orders' },
             { label: 'Konten', icon: 'pi pi-file', to: '/statements' },
+            { label: 'Blocks', icon: 'pi pi-th-large', to: '/blocks' },
         ],
     }
 ];
