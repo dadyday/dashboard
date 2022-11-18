@@ -26,3 +26,8 @@ a {
 .layout-theme-light {
     background-color: #edf1f5;
 }
+
+.p-toast.p-toast-top-right {
+    z-index: 1000;
+    top: 7rem;
+}

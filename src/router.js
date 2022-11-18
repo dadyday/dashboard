@@ -1,14 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import App from './App.vue';
+import AppLayout from './layout/AppLayout.vue';
 
 const routes = [
     {
         path: '/',
         name: 'app',
-        component: App,
+        component: AppLayout,
         children: [
             {
-                path: '',
+                path: '/',
                 name: 'dashboard',
                 component: () => import('./components/Dashboard.vue')
             },

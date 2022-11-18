@@ -37,29 +37,7 @@
 </template>
 
 <script>
-import EventBus from '@/AppEventBus';
-
 export default {
-	themeChangeListener: null,
-	mounted() {
-		this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.applyDarkTheme();
-            else
-                this.applyLightTheme();
-        };
-        EventBus.on('change-theme', this.themeChangeListener);
-
-		if (this.isDarkTheme()) {
-            this.applyDarkTheme();
-        }
-        else {
-            this.applyLightTheme();
-        }
-	},
-	beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
-    },
 	data() {
 		return {
 			lineData: {

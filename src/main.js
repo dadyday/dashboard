@@ -7,7 +7,8 @@ import './assets/demo/flags/flags.css';
 
 import { createApp, reactive } from 'vue';
 import router from './router';
-import AppWrapper from './AppWrapper.vue';
+import App from './App.vue';
+
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -94,15 +95,14 @@ import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 
-import CodeHighlight from './AppCodeHighlight';
-// import BlockViewer from './BlockViewer';
+import BlockViewer from './components/BlockViewer.vue';
 
 router.beforeEach(function(to, from, next) {
     window.scrollTo(0, 0);
     next();
 });
 
-const app = createApp(AppWrapper);
+const app = createApp(App);
 
 app.config.globalProperties.$appState = reactive({ theme: 'lara-light-indigo', darkTheme: false });
 
@@ -113,7 +113,6 @@ app.use(router);
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
-app.directive('code', CodeHighlight);
 app.directive('badge', BadgeDirective);
 app.directive('styleclass', StyleClass);
 
@@ -196,6 +195,6 @@ app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 
-// app.component('BlockViewer', BlockViewer);
+app.component('BlockViewer', BlockViewer);
 
 app.mount('#app');

@@ -186,7 +186,7 @@
 					<Menu ref="menu1" :popup="true" :model="items"></Menu>
 				</div>
 			</div>
-			
+
 			<span class="block text-600 font-medium mb-3">TODAY</span>
 			<ul class="p-0 mx-0 mt-0 mb-4 list-none">
 				<li class="flex align-items-center py-2 border-bottom-1 surface-border">
@@ -225,7 +225,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="px-4 py-5 shadow-2 flex flex-column md:flex-row md:align-items-center justify-content-between mb-3" 
+		<div class="px-4 py-5 shadow-2 flex flex-column md:flex-row md:align-items-center justify-content-between mb-3"
 			style="border-radius: 1rem; background: linear-gradient(0deg, rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0.5)), linear-gradient(92.54deg, #1C80CF 47.88%, #FFFFFF 100.01%)">
 			<div>
 				<div class="text-blue-100 font-medium text-xl mt-2 mb-3">TAKE THE NEXT STEP</div>
@@ -242,7 +242,6 @@
 </template>
 
 <script>
-import EventBus from '@/AppEventBus';
 import ProductService from '../service/ProductService';
 
 export default {
@@ -278,28 +277,9 @@ export default {
 		}
 	},
 	productService: null,
-	themeChangeListener: null,
 	mounted() {
 		this.productService.getProductsSmall().then(data => this.products = data);
-
-		this.themeChangeListener = (event) => {
-            if (event.dark)
-                this.applyDarkTheme();
-            else
-                this.applyLightTheme();
-        };
-        EventBus.on('change-theme', this.themeChangeListener);
-
-		if (this.isDarkTheme()) {
-            this.applyDarkTheme();
-        }
-        else {
-            this.applyLightTheme();
-        }
 	},
-	beforeUnmount() {
-        EventBus.off('change-theme', this.themeChangeListener );
-    },
 	created() {
 		this.productService = new ProductService();
 	},
