@@ -8,6 +8,11 @@ const routes = [
         component: AppLayout,
         children: [
             {
+                path: '/empty',
+                name: 'empty',
+                component: () => import('./views/Empty.vue')
+            },
+            {
                 path: '/',
                 name: 'dashboard',
                 component: () => import('./components/Dashboard.vue')
@@ -123,11 +128,6 @@ const routes = [
                 path: '/timeline',
                 name: 'timeline',
                 component: () => import('./pages/TimelineDemo.vue')
-            },
-            {
-                path: '/empty',
-                name: 'empty',
-                component: () => import('./components/EmptyPage.vue')
             },
             {
                 path: '/documentation',

@@ -14,7 +14,13 @@
 
         <div class="layout-main-container">
             <div class="layout-main">
-                <router-view />
+                <RouterView v-slot="{ Component }">
+                    <template v-if="Component">
+                        <Suspense>
+                        <component :is="Component"></component>
+                        </Suspense>
+                    </template>
+                </RouterView>
             </div>
             <AppFooter />
         </div>
